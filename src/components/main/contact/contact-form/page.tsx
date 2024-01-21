@@ -4,14 +4,25 @@ import { FormEvent, useState } from "react";
 import Input from "../../input/page";
 import TextArea from "../../textarea/page";
 import Button from "../../button/page";
+import { request } from "@/helpers/requestHelpers";
 
 export default function ContactForm() {
   const [name, setName] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [suggestion, setSuggestion] = useState<string>("");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const resetForm = () => {
+    setName("");
+    setTitle("");
+    setSuggestion("");
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    resetForm();
+
+    await request.POST2("/api/contact-form", { name, title, suggestion });
   };
 
   return (

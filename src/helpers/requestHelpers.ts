@@ -6,6 +6,19 @@ export const request = {
 
         return response.json();
     },
+    POST2: async(url: string, payload: object) => {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload),
+        });
+
+        if (!response.ok || !response.body) return;
+
+        return response.json();
+    },
     POST: async(url: string, payload: string, setHandler: Function, setHandlerAdditional: Function) => {
         const response = await fetch(url, {
             method: "POST",
