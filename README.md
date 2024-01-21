@@ -2,4 +2,4 @@ Web Application that helps users summarize texts, links and articles into main i
 
 Done using Next.js 14, Tailwind CSS, Postgres SQL and OpenAI API.
 
-Link: https://newsletter-summarizer-app.vercel.app/
+Link: [https://newsletter-summarizer-app.vercel.app/](https://newsletter-summarizer.vercel.app/)https://newsletter-summarizer.vercel.app/
