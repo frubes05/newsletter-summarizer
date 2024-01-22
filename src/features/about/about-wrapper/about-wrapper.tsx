@@ -1,39 +1,59 @@
-"use client";
+'use client'
 
-import clsx from "clsx";
-import { useInView } from "react-intersection-observer";
+import clsx from 'clsx'
+import { useInView } from 'react-intersection-observer'
 
 export default function AboutWrapper() {
-  const { ref, inView } = useInView({
-    threshold: 0.25,
-    rootMargin: "-50px 0px 0px -50px",
-  });
+    const { ref, inView } = useInView({
+        threshold: 0.25,
+        rootMargin: '-50px 0px 0px -50px',
+    })
 
-  return (
-    <div
-      className="mx-0 py-12 px-16 lg:mx-12 lg:mb-16 lg:py-48 lg:px-52 bg-primary-300"
-      ref={ref}
-    >
-      <article
-        className={clsx("transition-opacity duration-500", {
-          "opacity-100": inView,
-          "opacity-0": !inView,
-        })}
-      >
-        <h2 className="text-6xl mb-8">About</h2>
-        <p className="leading-10">
-          A Newsletter Summarizer is a web application designed to curate and
-          condense news content based on user preferences, providing a
-          streamlined and tailored news-reading experience. By leveraging
-          advanced AI technologies like ChatGPT, this platform can intelligently
-          analyze and summarize news articles, blog posts, or research papers,
-          presenting them in an easily digestible format. Users can input
-          specific topics, keywords, or URLs, and the aggregator delivers
-          concise summaries, highlighting key information and context. This not
-          only saves time but also offers a customized way to stay informed
-          about topics of personal or professional interest.
-        </p>
-      </article>
-    </div>
-  );
+    return (
+        <div
+            className="mx-0 py-12 px-16 lg:mx-12 lg:mb-16 lg:py-48 lg:px-52 bg-primary-300"
+            ref={ref}
+        >
+            <article
+                className={clsx(
+                    'transition-opacity duration-500',
+                    {
+                        'opacity-100': inView,
+                        'opacity-0': !inView,
+                    }
+                )}
+            >
+                <h2 className="text-6xl mb-8">
+                    About
+                </h2>
+                <p className="leading-10">
+                    A Newsletter Summarizer is a
+                    web application designed to
+                    curate and condense news
+                    content based on user
+                    preferences, providing a
+                    streamlined and tailored
+                    news-reading experience. By
+                    leveraging advanced AI
+                    technologies like ChatGPT,
+                    this platform can
+                    intelligently analyze and
+                    summarize news articles, blog
+                    posts, or research papers,
+                    presenting them in an easily
+                    digestible format. Users can
+                    input specific topics,
+                    keywords, or URLs, and the
+                    aggregator delivers concise
+                    summaries, highlighting key
+                    information and context. This
+                    not only saves time but also
+                    offers a customized way to
+                    stay informed about topics of
+                    personal or professional
+                    interest.
+                </p>
+            </article>
+        </div>
+    )
 }
