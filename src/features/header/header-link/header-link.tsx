@@ -24,7 +24,8 @@ export default function HeaderLink({
     <Link
       href={href}
       className={clsx("text-white p-2 flex gap-4 text-base items-center", {
-        "w-full justify-center lg:mr-auto text-3xl lg:w-fit lg:justify-start": position === 0,
+        "w-full justify-center lg:mr-auto text-3xl lg:w-fit lg:justify-start":
+          position === 0,
       })}
     >
       <Image
@@ -33,8 +34,8 @@ export default function HeaderLink({
         width={36}
         alt="newsletter icon"
         className="relative"
-        />
-        <span>{label}</span>
+      />
+      <span>{label}</span>
     </Link>
   );
 }

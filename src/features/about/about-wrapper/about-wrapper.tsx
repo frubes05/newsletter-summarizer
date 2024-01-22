@@ -10,7 +10,10 @@ export default function AboutWrapper() {
   });
 
   return (
-    <div className="mx-0 py-12 px-16 lg:mx-12 lg:mb-16 lg:py-48 lg:px-52 bg-primary-300" ref={ref}>
+    <div
+      className="mx-0 py-12 px-16 lg:mx-12 lg:mb-16 lg:py-48 lg:px-52 bg-primary-300"
+      ref={ref}
+    >
       <article
         className={clsx("transition-opacity duration-500", {
           "opacity-100": inView,

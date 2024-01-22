@@ -38,7 +38,10 @@ export default function SummaryForm() {
         <SummaryToggle checked={checked} setChecked={setChecked} />
         <SummaryReset isLoading={isLoading} onClick={handleReset} />
       </div>
-      <form className="min-w-full flex flex-col lg:flex-row gap-4 mt-12 lg:min-w-[700px]" onSubmit={handleSubmit}>
+      <form
+        className="min-w-full flex flex-col lg:flex-row gap-4 mt-12 lg:min-w-[700px]"
+        onSubmit={handleSubmit}
+      >
         {checked ? (
           <SummaryFormUrl input={urlInput} setInput={setUrlInput} />
         ) : (
