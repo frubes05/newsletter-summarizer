@@ -20,7 +20,7 @@ export default function HeaderButton({ label, sectionId }: IHeaderButton) {
   return (
     <Button
       onClick={() => handleScrollIntoView(sectionId)}
-      className="text-white p-6 hover:translate-y-[-0.25rem] transition-all ease-in duration-200"
+      className="text-white p-2 hover:translate-y-[-0.25rem] transition-all ease-in duration-200"
     >
       {label}
     </Button>

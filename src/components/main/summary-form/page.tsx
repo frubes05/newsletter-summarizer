@@ -34,11 +34,11 @@ export default function SummaryForm() {
 
   return (
     <>
-      <div className="flex justify-center items-center gap-8">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
         <SummaryToggle checked={checked} setChecked={setChecked} />
         <SummaryReset isLoading={isLoading} onClick={handleReset} />
       </div>
-      <form className="flex gap-4 mt-12 min-w-[700px]" onSubmit={handleSubmit}>
+      <form className="min-w-full flex flex-col lg:flex-row gap-4 mt-12 lg:min-w-[700px]" onSubmit={handleSubmit}>
         {checked ? (
           <SummaryFormUrl input={urlInput} setInput={setUrlInput} />
         ) : (

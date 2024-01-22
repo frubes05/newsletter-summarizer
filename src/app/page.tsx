@@ -5,7 +5,7 @@ import SummaryForm from "@/components/main/summary-form/page";
 export default function Home() {
   return (
     <main>
-      <section className="flex justify-center items-center flex-col gap-12 pt-36 pb-24 bg-primary-300">
+      <section className="flex justify-center items-center flex-col gap-12 pt-36 pb-24 bg-primary-30 px-4 lg:px-0">
         <h1 className="text-white text-6xl">Summarize a report!</h1>
         <p className="text-white opacity-75">
           Use this tool to summarize the latest news and share them with your

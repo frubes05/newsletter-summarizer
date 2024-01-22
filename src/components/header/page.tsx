@@ -33,14 +33,7 @@ export default function Header() {
         },
       )}
     >
-      <ul className="flex justify-start relative">
-        <Image
-          src="./icon.svg"
-          height={36}
-          width={36}
-          alt="newsletter icon"
-          className="relative left-4"
-        />
+      <ul className="flex flex-col lg:flex-row justify-start relative">
         {headerLinks.map((link, index) => (
           <HeaderLink
             key={link.label}

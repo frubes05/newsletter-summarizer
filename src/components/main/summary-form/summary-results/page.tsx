@@ -28,7 +28,7 @@ export default function SummaryResults({
   };
 
   return (
-    <div className="w-[700px] min-h-[300px] relative flex justify-center items-center flex-col gap-4 px-8 pt-20 pb-12 outline-none border-white border border-opacity-30 rounded-lg bg-primary-200 text-white mt-8">
+    <div className="w-full lg:w-[700px] min-h-[300px] relative flex justify-center items-center flex-col gap-4 px-8 pt-20 pb-12 outline-none border-white border border-opacity-30 rounded-lg bg-primary-200 text-white mt-8">
       <Button
         onClick={copyToClipboard}
         disabled={!isStreaming}
