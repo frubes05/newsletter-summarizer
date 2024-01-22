@@ -9,12 +9,14 @@ interface IHeaderLink {
   sectionId?: string;
 }
 
-export default function HeaderLink({ label, href, position, sectionId }: IHeaderLink) {
-
+export default function HeaderLink({
+  label,
+  href,
+  position,
+  sectionId,
+}: IHeaderLink) {
   if (!href) {
-    return(
-      <HeaderButton label={label} sectionId={sectionId} />
-    )
+    return <HeaderButton label={label} sectionId={sectionId} />;
   }
 
   return (

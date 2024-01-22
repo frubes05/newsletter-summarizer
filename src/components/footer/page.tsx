@@ -47,13 +47,14 @@ export default function Footer() {
       </ul>
       <div className="flex flex-col gap-4 my-4">
         <p>Contact me</p>
-        <Link href="mailto:filip.rubes2@gmail.com" className="font-bold hover:scale-95 transition-all duration-200 text-xl">
-            filip.rubes2@gmail.com
+        <Link
+          href="mailto:filip.rubes2@gmail.com"
+          className="font-bold hover:scale-95 transition-all duration-200 text-xl"
+        >
+          filip.rubes2@gmail.com
         </Link>
       </div>
-      <p>
-        &copy;  Filip Rubes
-      </p>
+      <p>&copy; Filip Rubes</p>
     </footer>
   );
 }

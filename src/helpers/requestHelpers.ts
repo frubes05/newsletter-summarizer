@@ -1,54 +1,59 @@
 export const request = {
-    GET: async(url: string) => {
-        const response = await fetch(url);
+  GET: async (url: string) => {
+    const response = await fetch(url);
 
-        if (!response.ok) return;
+    if (!response.ok) return;
 
-        return response.json();
-    },
-    POST2: async(url: string, payload: object) => {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload),
-        });
+    return response.json();
+  },
+  POST2: async (url: string, payload: object) => {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
 
-        if (!response.ok || !response.body) return;
+    if (!response.ok || !response.body) return;
 
-        return response.json();
-    },
-    POST: async(url: string, payload: string, setHandler: Function, setHandlerAdditional: Function) => {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ payload }),
-        });
+    return response.json();
+  },
+  POST: async (
+    url: string,
+    payload: string,
+    setHandler: Function,
+    setHandlerAdditional: Function,
+  ) => {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ payload }),
+    });
 
-        if (!response.ok || !response.body) return;
+    if (!response.ok || !response.body) return;
 
-        let chatResponse = "";
+    let chatResponse = "";
 
-        const reader = response.body?.getReader();
-        const decoder = new TextDecoder();
+    const reader = response.body?.getReader();
+    const decoder = new TextDecoder();
 
-        setHandlerAdditional(false)
+    setHandlerAdditional(false);
 
-        while(true) {
-            const { value, done } = await reader.read();
-            const text = decoder.decode(value);
+    while (true) {
+      const { value, done } = await reader.read();
+      const text = decoder.decode(value);
 
-            setHandler((prev: string) => prev + text);
+      setHandler((prev: string) => prev + text);
 
-            if (done) {
-                setHandlerAdditional(true)
-                break;
-            }
-        }
+      if (done) {
+        setHandlerAdditional(true);
+        break;
+      }
+    }
 
-        return { chatResponse };
-    },
+    return { chatResponse };
+  },
 };

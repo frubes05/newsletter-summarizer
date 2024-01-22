@@ -42,10 +42,17 @@ export default function SummaryForm() {
         {checked ? (
           <SummaryFormUrl input={urlInput} setInput={setUrlInput} />
         ) : (
-          <SummaryFormParagraph input={paragraphInput} setInput={setParagraphInput} />
+          <SummaryFormParagraph
+            input={paragraphInput}
+            setInput={setParagraphInput}
+          />
         )}
       </form>
-      <SummaryResults isLoading={isLoading} isStreaming={isStreaming} summarizedText={summarizedText} />
+      <SummaryResults
+        isLoading={isLoading}
+        isStreaming={isStreaming}
+        summarizedText={summarizedText}
+      />
     </>
   );
 }

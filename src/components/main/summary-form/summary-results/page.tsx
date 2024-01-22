@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Button from "../../button/page";
 import Markdown from "react-markdown";
 import { labels } from "@/utils/default-summary-text/default-summary-text";
-import { ThreeCircles } from 'react-loader-spinner';
+import { ThreeCircles } from "react-loader-spinner";
 
 interface ISummaryResultsProps {
   summarizedText: string;
@@ -47,17 +47,15 @@ export default function SummaryResults({
       </Button>
       {isLoading ? (
         <ThreeCircles
-        visible={true}
-        height="100"
-        width="100"
-        color="#2aab5e"
-        ariaLabel="three-circles-loading"
+          visible={true}
+          height="100"
+          width="100"
+          color="#2aab5e"
+          ariaLabel="three-circles-loading"
         />
       ) : (
         <>
-          <h3 className="text-white text-2xl text-left self-start">
-          Summary:
-          </h3>
+          <h3 className="text-white text-2xl text-left self-start">Summary:</h3>
           <p className="prose prose-lg prose-neutral text-white" ref={summary}>
             {summarizedText ? (
               <Markdown>{summarizedText}</Markdown>

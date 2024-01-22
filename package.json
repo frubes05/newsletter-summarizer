@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "clsx": "^2.1.0",
@@ -29,6 +31,7 @@
     "eslint-config-next": "14.0.4",
     "openai": "^4.24.7",
     "postcss": "^8",
+    "prettier": "3.2.4",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

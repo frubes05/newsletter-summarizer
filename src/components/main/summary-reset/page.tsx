@@ -2,13 +2,20 @@ import { FormEvent } from "react";
 import Button from "../button/page";
 
 interface ISummaryResetProps {
-    isLoading: boolean;
-    onClick: (e: FormEvent) => void;
+  isLoading: boolean;
+  onClick: (e: FormEvent) => void;
 }
 
-export default function SummaryReset({ isLoading, onClick }: ISummaryResetProps) {
+export default function SummaryReset({
+  isLoading,
+  onClick,
+}: ISummaryResetProps) {
   return (
-    <Button onClick={onClick} disabled={isLoading} className="rounded-full hover:bg-primary-200 border border-white border-opacity-30 h-12 w-12 flex justify-center items-center transition-colors duration-200 ease-in-out">
+    <Button
+      onClick={onClick}
+      disabled={isLoading}
+      className="rounded-full hover:bg-primary-200 border border-white border-opacity-30 h-12 w-12 flex justify-center items-center transition-colors duration-200 ease-in-out"
+    >
       <svg
         width="24"
         height="24"

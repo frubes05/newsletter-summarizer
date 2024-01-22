@@ -8,14 +8,13 @@ interface IHeaderButton {
 }
 
 export default function HeaderButton({ label, sectionId }: IHeaderButton) {
-
   const handleScrollIntoView = (id?: string) => {
     if (!id) return;
 
     const section = document?.getElementById(id);
     section?.scrollIntoView({
-        behavior: "smooth",
-    })
+      behavior: "smooth",
+    });
   };
 
   return (
