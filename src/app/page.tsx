@@ -1,18 +1,11 @@
-import About from "@/components/main/about/page";
-import Contact from "@/components/main/contact/page";
-import SummaryForm from "@/components/main/summary-form/page";
+import About from "@/features/about/about";
+import Contact from "@/features/contact/contact";
+import Summary from "@/features/summary/summary";
 
 export default function Home() {
   return (
     <main>
-      <section className="flex justify-center items-center flex-col gap-12 pt-36 pb-24 bg-primary-30 px-4 lg:px-0">
-        <h1 className="text-white text-6xl">Summarize a report!</h1>
-        <p className="text-white opacity-75">
-          Use this tool to summarize the latest news and share them with your
-          friends and family!
-        </p>
-        <SummaryForm />
-      </section>
+      <Summary />
       <About />
       <Contact />
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
