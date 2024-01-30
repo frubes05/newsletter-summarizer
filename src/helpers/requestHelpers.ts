@@ -1,7 +1,4 @@
-import {
-    ISummaryAction,
-    ISummaryState,
-} from '@/components/main/summary-form/page'
+import { ISummaryAction } from '@/features/summary/summary-form/summary-form'
 import { Dispatch } from 'react'
 
 export const request = {
@@ -32,7 +29,6 @@ export const request = {
     POST: async (
         url: string,
         payload: string,
-        state: ISummaryState,
         dispatch: Dispatch<ISummaryAction>
     ) => {
         const response = await fetch(url, {

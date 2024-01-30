@@ -1,16 +1,12 @@
 import clsx from 'clsx'
 import Image from 'next/image'
 import Button from '../../../components/button/button'
+import { useContext } from 'react'
+import { SummaryContext } from '@/features/summary/summary-form/summary-form'
 
-interface ISummaryToggleProps {
-    checked: boolean
-    setChecked: (value: boolean) => void
-}
+export default function SummaryToggle() {
+    const summaryCtx = useContext(SummaryContext)
 
-export default function SummaryToggle({
-    checked,
-    setChecked,
-}: ISummaryToggleProps) {
     return (
         <div className="w-48 px-8 py-6 border-white border-opacity-30 border rounded-3xl relative opacity-75">
             <label
@@ -18,20 +14,27 @@ export default function SummaryToggle({
                 className="p-4 absolute z-10 top-0 left-0 h-full w-full rounded-3xl cursor-pointer flex justify-center items-center"
             >
                 <Button
-                    onClick={(e) =>
-                        setChecked(!checked)
+                    onClick={() =>
+                        summaryCtx?.dispatch({
+                            type: 'SET_IS_CHECKED',
+                            payload:
+                                !summaryCtx?.state
+                                    .checked,
+                        })
                     }
                     className={clsx(
                         'bg-button-primary p-4 absolute z-0 left-0 top-0 h-full w-[50%] flex justify-center items-center rounded-3xl transition-all duration-200 ease-in-out',
                         {
                             'translate-x-[100%]':
-                                !checked,
+                                !summaryCtx?.state
+                                    .checked,
                         }
                     )}
                 >
                     <Image
                         src={
-                            checked
+                            summaryCtx?.state
+                                .checked
                                 ? '/link.svg'
                                 : '/text.svg'
                         }
@@ -44,11 +47,15 @@ export default function SummaryToggle({
                     type="checkbox"
                     name="summary"
                     id="summary"
-                    checked={checked}
+                    checked={
+                        summaryCtx?.state.checked
+                    }
                     onChange={(e) =>
-                        setChecked(
-                            e.target.checked
-                        )
+                        summaryCtx?.dispatch({
+                            type: 'SET_IS_CHECKED',
+                            payload:
+                                e.target.checked,
+                        })
                     }
                     hidden
                 />

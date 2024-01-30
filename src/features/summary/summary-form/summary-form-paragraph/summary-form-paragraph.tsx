@@ -1,21 +1,19 @@
-import Button from '../../../../components/button/button'
-import TextArea from '../../../../components/textarea/textarea'
+import { useContext } from 'react'
+import Button from '@/components/button/button'
+import TextArea from '@/components/textarea/textarea'
+import { SummaryContext } from '@/features/summary/summary-form/summary-form'
 
-interface ISummaryFormUrlProps {
-    input: string
-    setInput: (val: string) => void
-}
+export default function SummaryFormParagraph() {
+    const summaryCtx = useContext(SummaryContext)
 
-export default function SummaryFormParagraph({
-    input,
-    setInput,
-}: ISummaryFormUrlProps) {
     return (
         <div className="flex justify-center items-start w-full flex-col gap-8">
             <TextArea
                 placeholder="Paste paragraphs of text you want to summarize.&#10;Make sure your paragraph contains at least 200 words.&#10;Otherwise, just use url option to summarize text."
-                value={input}
-                setValue={setInput}
+                value={
+                    summaryCtx?.state
+                        .paragraphInput || ''
+                }
                 className="w-full min-h-96 p-4 outline-none border-white border border-opacity-30 rounded-lg bg-primary-200 text-white"
             />
             <Button
