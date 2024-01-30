@@ -25,6 +25,7 @@ export interface ISummaryState {
 export interface ISummaryAction {
     type:
         | 'RESET'
+        | 'RESET_INPUTS'
         | 'SET_IS_STREAMING'
         | 'SET_SUMMARIZED_TEXT'
         | 'SET_URL_INPUT'
@@ -55,6 +56,12 @@ const summaryReducer = (
                 summarizedText: '',
                 isLoading: false,
                 isStreaming: false,
+            }
+        case 'RESET_INPUTS':
+            return {
+                ...state,
+                urlInput: '',
+                paragraphInput: '',
             }
         case 'SET_IS_STREAMING':
             return {
@@ -116,7 +123,7 @@ export default function SummaryForm() {
 
         await request.POST(url, payload, dispatch)
 
-        dispatch({ type: 'RESET' })
+        dispatch({ type: 'RESET_INPUTS' })
     }
 
     const value = useMemo(
