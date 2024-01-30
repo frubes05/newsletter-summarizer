@@ -1,3 +1,6 @@
+import { ISummaryAction, ISummaryState } from "@/components/main/summary-form/page";
+import { Dispatch } from "react";
+
 export const request = {
   GET: async (url: string) => {
     const response = await fetch(url);
@@ -22,8 +25,8 @@ export const request = {
   POST: async (
     url: string,
     payload: string,
-    setHandler: Function,
-    setHandlerAdditional: Function,
+    state: ISummaryState,
+    dispatch: Dispatch<ISummaryAction>,
   ) => {
     const response = await fetch(url, {
       method: "POST",
@@ -40,16 +43,16 @@ export const request = {
     const reader = response.body?.getReader();
     const decoder = new TextDecoder();
 
-    setHandlerAdditional(false);
+    dispatch({ type: "SET_IS_STREAMING", payload: false})
 
     while (true) {
       const { value, done } = await reader.read();
       const text = decoder.decode(value);
 
-      setHandler((prev: string) => prev + text);
+      dispatch({ type: "SET_SUMMARIZED_TEXT", payload: text});
 
       if (done) {
-        setHandlerAdditional(true);
+        dispatch({ type: "SET_IS_STREAMING", payload: false})
         break;
       }
     }

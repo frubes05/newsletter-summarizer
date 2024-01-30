@@ -1,10 +1,13 @@
 "use client";
 
+import { ChangeEvent, FormEvent, useContext } from "react";
+import { SummaryContext } from "../summary-form/page";
+
 interface IInputProps {
   value: string;
-  setValue: (val: string) => void;
   className: string;
   placeholder: string;
+  setValue?: (val: string) => void;
 }
 
 export default function Input({
@@ -13,12 +16,22 @@ export default function Input({
   className,
   placeholder,
 }: IInputProps) {
+  const summaryCtx = useContext(SummaryContext);
+
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (summaryCtx) {
+      summaryCtx.dispatch({ type: "SET_URL_INPUT", payload: e.target.value })
+    } else if (setValue) {
+      setValue(e.target.value);
+    }
+  }
+
   return (
     <input
       type="text"
       placeholder={placeholder}
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={handleOnChange}
       className={className}
     />
   );

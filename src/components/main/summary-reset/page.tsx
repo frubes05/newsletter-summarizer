@@ -1,19 +1,14 @@
-import { FormEvent } from "react";
+import { useContext } from "react";
 import Button from "../button/page";
+import { SummaryContext } from "../summary-form/page";
 
-interface ISummaryResetProps {
-  isLoading: boolean;
-  onClick: (e: FormEvent) => void;
-}
+export default function SummaryReset() {
+  const summaryCtx = useContext(SummaryContext);
 
-export default function SummaryReset({
-  isLoading,
-  onClick,
-}: ISummaryResetProps) {
   return (
     <Button
-      onClick={onClick}
-      disabled={isLoading}
+      onClick={() => summaryCtx?.dispatch({type: "RESET"})}
+      disabled={summaryCtx?.state.isLoading}
       className="rounded-full hover:bg-primary-200 border border-white border-opacity-30 h-12 w-12 flex justify-center items-center transition-colors duration-200 ease-in-out"
     >
       <svg
